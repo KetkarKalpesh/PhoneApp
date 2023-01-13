@@ -1,0 +1,21 @@
+<template>
+    <lightning-card title="Available Phones" icon-name="utility:phone_portrait" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+        <div class="slds-var-m-around_medium">
+            <lightning-layout multiple-rows>
+                <template if:true={phones}>
+                    <template for:each={phones} for:item="phone">
+                        <lightning-layout-item key={phone.Id} size="4">
+                            <img src={phone.Picture_URL__c} height="400" alt="Phone Image" padding="8px" class="slds-align_absolute-center slds-grid slds-gutters"/>
+                            <div class="slds-align_absolute-center slds-col">
+                                <p><strong>{phone.Name}</strong></p>
+                                </div>
+                            <div class="slds-align_absolute-center">
+                                <p>MRP: {phone.Price__c}</p>
+                            </div>
+                        </lightning-layout-item>
+                    </template>
+                </template>
+            </lightning-layout>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,22 @@
+<template>
+    <lightning-card title="Filter" icon-name="standard:filter" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+        <div class="slds-p-around_medium">
+            <lightning-input type="search" value={searchKey} label="Search Phone" class="slds-var-m-bottom_small"></lightning-input>
+            <lightning-slider step="100" max="250000" min="0" label="Max Price" value={maxPrice} class="slds-var-m-bottom_small"></lightning-slider>
+            <section>
+                <h2>Brand</h2>
+                <template if:true={brands.data}>
+                    <template for:each={brands.data.values} for:item="brand">
+                        <lightning-input
+                                key={brand.value}
+                                label={brand.label}
+                                type="checkbox"
+                                checked
+                                data-value={brand.value}
+                                data-name="Brands"></lightning-input>
+                    </template>
+                </template>
+            </section>
+        </div>
+    </lightning-card>
+</template>
